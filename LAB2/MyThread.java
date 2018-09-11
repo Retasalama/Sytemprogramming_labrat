@@ -1,3 +1,5 @@
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class MyThread extends Thread {
 
@@ -6,7 +8,9 @@ public class MyThread extends Thread {
     try {
       System.out.println("Thread started");
       while (true) {
-        System.out.println("Tiisu, we want more!");
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(ts);
+        System.out.println("Tiisu, we want more! " + dateTime);
         sleep(5000);
       }
     }
