@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ThreadExample</string>
+    <string name="STOP">STOP</string>
+    <string name="QUIT">QUIT</string>
+    <string name="command">Give command</string>
+    <string name="START">START</string>
+</resources>
