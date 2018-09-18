@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DataFetchExample</string>
+    <string name="URL">Give URL:</string>
+    <string name="OK">OK</string>
+</resources>
