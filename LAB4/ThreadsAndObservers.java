@@ -27,8 +27,8 @@ public class ThreadsAndObservers implements ExampleInterface {
         thread.start();
       }
     }
-    for(ExampleThread threadit : threads){
-      threadit.interrupt();
+    for(ExampleThread thread : threads){
+      thread.interrupt();
     }
   }
 
