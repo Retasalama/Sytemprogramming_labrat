@@ -2,6 +2,7 @@ package t.e.datafetchexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements NetworkLoaderThre
 
     @Override
     public void threadProgress(final String data) {
+        Log.d("TAG3", "DATA = " + data);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NetworkLoaderThre
 
     public void sendUrl(View view) {
         String Url = giveUrl.getText().toString();
+        Log.d("TAG1", "URL= "+ Url);
         NetworkLoaderThread networkLoaderThread = new NetworkLoaderThread(Url);
         networkLoaderThread.listener = this;
         networkLoaderThread.start();
