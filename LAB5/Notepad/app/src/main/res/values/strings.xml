@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="button_editText">Edit text</string>
+    <string name="errorText">File not found or other error</string>
+</resources>
