@@ -1,34 +1,31 @@
 package t.e.annotations;
 
-import android.content.res.Resources;
+
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.w3c.dom.Text;
+import org.androidannotations.annotations.res.StringArrayRes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @EActivity
 public class MainActivity extends AppCompatActivity implements ImageLoader.ImageLoaderInterface {
 
     private ArrayList<Bitmap> mushroomImages;
-    private String[] mushroomNames;
-    private String[] urls;
-    private ImageLoader myImageLoader;
     private int clicks = 0;
+    private final int MAX_SIZE = 100;
 
     @ViewById(R.id.myUrlImage)
     ImageView mushroomImage;
@@ -41,6 +38,17 @@ public class MainActivity extends AppCompatActivity implements ImageLoader.Image
 
     @ViewById(R.id.determinateBar)
     ProgressBar progressBar;
+
+    @AfterViews
+    void setButtonInvisible (){
+        buttonNext.setVisibility(View.GONE);
+    }
+
+    @StringArrayRes(R.array.urls)
+    String[] urls;
+
+    @StringArrayRes(R.array.mushroomNames)
+    String[] mushroomNames;
 
     @Click
     void buttonNext() {
@@ -59,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements ImageLoader.Image
 
     @Background
     public void getImages() {
+
+        //create object from ImageLoader class and set listener
+        ImageLoader myImageLoader = new ImageLoader(urls);
+        myImageLoader.setListener(this);
         myImageLoader.loadImages();
     }
 
@@ -66,20 +78,6 @@ public class MainActivity extends AppCompatActivity implements ImageLoader.Image
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mushroomImages = new ArrayList<Bitmap>();
-
-        //set the next-button invisible (waiting for imageloading)
-        buttonNext.setVisibility(View.GONE);
-
-        //get the url- and mushroomNames -arrays from resources
-        Resources res = getResources();
-        urls = res.getStringArray(R.array.urls);
-        mushroomNames = res.getStringArray(R.array.mushroomNames);
-
-        //create object from ImageLoader class and set listener
-        myImageLoader = new ImageLoader(urls);
-        myImageLoader.setListener(this);
         getImages();
 
 
@@ -89,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements ImageLoader.Image
     @Override
     @UiThread
     public void setImages(ArrayList<Bitmap> bitmapArray) {
+        mushroomImages = new ArrayList<>();
         mushroomImages = bitmapArray;
         mushroomName.setText(mushroomNames[clicks]);
         mushroomImage.setImageBitmap(mushroomImages.get(clicks));
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements ImageLoader.Image
     @UiThread
     public void showProgress(int progress) {
         progressBar.setProgress(progress);
-        if(progress >= 100) {
+        if(progress >= MAX_SIZE) {
             progressBar.setVisibility(View.GONE);
             buttonNext.setVisibility(View.VISIBLE);
         }
