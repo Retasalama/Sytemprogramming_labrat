@@ -6,19 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:progress="20"/>
+
     <TextView
         android:id="@+id/tvImageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/herkkutatti"
+        android:textSize="30sp"
+        android:text="@string/ladataan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/determinateBar" />
 
     <ImageView
         android:id="@+id/myUrlImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintTop_toBottomOf="@id/tvImageText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>

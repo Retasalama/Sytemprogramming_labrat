@@ -1,12 +1,21 @@
 <resources>
     <string name="app_name">Annotations</string>
     <string name="herkkutatti">Herkkutatti</string>
-    <string name="buttonNext">Next</string>
+    <string name="buttonNext">Seuraava sieni</string>
+    <string name="startAgain">Katso uudelleen</string>
+    <string name="ladataan">Hetkonen...</string>
     <string-array name="urls">
         <item>http://www.naturephoto-cz.com/photos/maly/herkkutatti-90x_588.jpg</item>
         <item>https://www.vastavalo.net/albums/userpics/21292/normal_koivunpunikkitatti.jpg</item>
         <item>http://www.naturephoto-cz.com/photos/maly/kehnasieni-xxx335.jpg</item>
         <item>http://2.bp.blogspot.com/-YgUZCnKaDO0/UjoQg8EtkYI/AAAAAAAAArg/trQlrDRy9WA/s1600/cantharellus_tubaeformis_bi0915.jpg</item>
         <item>http://www.sienikoto.fi/wp-content/uploads/2012/10/IMG_2776-616x441.jpg</item>
+    </string-array>
+    <string-array name="mushroomNames">
+        <item>Herkkutatti</item>
+        <item>Punikkitatti</item>
+        <item>Kehnasieni</item>
+        <item>Suppilovahvero</item>
+        <item>Mustavahakas</item>
     </string-array>
 </resources>
