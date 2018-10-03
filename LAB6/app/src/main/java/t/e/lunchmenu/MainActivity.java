@@ -12,7 +12,7 @@ import java.util.HashMap;
 @EActivity
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<HashMap<String, String>> lunchList;
+    private ArrayList<String> lunchList;
 
     @Background
     void connect () {
