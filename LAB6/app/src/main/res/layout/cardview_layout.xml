@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="4dp"
+    card_view:cardElevation="2dp"
+    card_view:cardCornerRadius="4dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageviewLunch"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            card_view:layout_constraintLeft_toLeftOf="@id/constraint_layout"
+            card_view:layout_constraintTop_toTopOf="@id/constraint_layout"
+            card_view:layout_constraintBottom_toBottomOf="@id/constraint_layout"
+            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginTop="@dimen/padding"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding" />
+
+        <TextView
+            android:id="@+id/tv_mainCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAINCOURSE"
+            android:textSize="@dimen/heading_text"
+            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginTop="@dimen/padding"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            card_view:layout_constraintLeft_toRightOf="@id/imageviewLunch"/>
+
+        <TextView
+            android:id="@+id/tv_sideCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIDECOURSE"
+            android:textSize="@dimen/sub_text"
+            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginTop="@dimen/padding"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            card_view:layout_constraintLeft_toRightOf="@id/imageviewLunch"
+            card_view:layout_constraintTop_toBottomOf="@id/tv_mainCourse"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
+
+

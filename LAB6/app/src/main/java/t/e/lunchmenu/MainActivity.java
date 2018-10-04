@@ -2,6 +2,7 @@ package t.e.lunchmenu;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 @EActivity
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> lunchList;
+    private ArrayList<Lunches> lunchList;
 
     @Background
     void connect () {
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
         if(result != null){
             JsonParser jsonParser = new JsonParser();
             lunchList = jsonParser.parseJSON(result);
+        }
+        for(Lunches lunch : lunchList) {
+            String gatecory = lunch.getLunchGategory();
+            String headCourse = lunch.getHeadCourse();
+            String sideCourse = lunch.getSideDish();
+            String sedondSideDish = lunch.getSecondSideDish();
+            Log.d("TAG", "MEALS: " + gatecory + " ," + headCourse + " ," + sideCourse + " ," + sedondSideDish);
         }
 
     }
