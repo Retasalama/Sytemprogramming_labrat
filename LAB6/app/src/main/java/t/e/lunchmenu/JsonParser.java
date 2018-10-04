@@ -8,12 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JsonParser {
 
-    private ArrayList<Lunches> lunches;
+    private List<Lunches> lunches;
 
-    public ArrayList<Lunches> parseJSON(String jsonStr) {
+    public List<Lunches> parseJSON(String jsonStr) {
         lunches = new ArrayList<>();
 
         try {
@@ -29,6 +30,23 @@ public class JsonParser {
                 Lunches lunch = new Lunches();
                 JSONObject c = setMenus.getJSONObject(i);
                 lunch.setLunchGategory(c.getString("Name"));
+                switch (c.getString("Name")){
+                    case("VEGETABLE LUNCH"):
+                        lunch.setIconId(R.drawable.vegetable);
+                        break;
+                    case("LUNCH"):
+                        lunch.setIconId(R.drawable.lunch);
+                        break;
+                    case("LUNCH SALAD"):
+                        lunch.setIconId(R.drawable.vegetable);
+                        break;
+                    case("SPECIAL LUNCH"):
+                        lunch.setIconId(R.drawable.special);
+                        break;
+                    default:
+                        lunch.setIconId(R.drawable.lunch);
+                        break;
+                }
 
 
                 JSONArray meals = c.getJSONArray("Meals");

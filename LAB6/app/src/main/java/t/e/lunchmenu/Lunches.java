@@ -17,6 +17,15 @@ public class Lunches {
     private String headCourse = "";
     private String sideDish = "";
     private String secondSideDish = "";
+    private int iconId;
+
+    public int getIconId() {
+        return iconId;
+    }
+
+    public void setIconId(int iconId) {
+        this.iconId = iconId;
+    }
 
     public String getSecondSideDish() {
         return secondSideDish;

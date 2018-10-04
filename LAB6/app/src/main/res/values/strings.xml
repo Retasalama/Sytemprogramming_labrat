@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LunchMenu</string>
+    <string name="mainCourse">Maincourse</string>
+    <string name="sideCourse">Sidecourse</string>
 </resources>
