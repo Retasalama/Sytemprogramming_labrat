@@ -32,7 +32,8 @@ public class Lunches {
     }
 
     public void setSecondSideDish(String secondSideDish) {
-        this.sideDish = sideDish + " and " + secondSideDish;
+        //this.sideDish = sideDish + " and " + secondSideDish;
+        this.secondSideDish = secondSideDish;
     }
 
     public String getLunchGategory() {

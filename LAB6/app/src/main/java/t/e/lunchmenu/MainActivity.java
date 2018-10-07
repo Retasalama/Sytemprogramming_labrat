@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Timestamp ts = new Timestamp(System.currentTimeMillis());
         date = new SimpleDateFormat("yyyy-MM-dd").format(ts);
         Log.d("DATE", "Date = " + date);
-        date="2018-10-08";
+        date="2018-10-12";
         String url = "https://www.amica.fi/api/restaurant/menu/day?date=" + date + "&language=en&restaurantPageId=66287";
         HTTPHandler httpHandler = new HTTPHandler();
         String result = httpHandler.makeServiceCall(url);
@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
     void setLunchList() {
 
         tvRestaurantname.setText(R.string.restaurant_name);
-        tvDate.setText(date);
+        String[] dateDDMMYYY = date.split("-");
+        String newdate = dateDDMMYYY[2] + "." + dateDDMMYYY[1] + "." + dateDDMMYYY[0];
+        tvDate.setText(newdate);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
         RVAdapter adapter = new RVAdapter(lunchList);

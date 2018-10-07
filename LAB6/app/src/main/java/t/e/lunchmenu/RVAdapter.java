@@ -32,6 +32,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.MealViewHolder>{
     public void onBindViewHolder(@NonNull MealViewHolder mealViewHolder, int i) {
         mealViewHolder.mainCourse.setText(lunches.get(i).getHeadCourse());
         mealViewHolder.sideCourse.setText(lunches.get(i).getSideDish());
+        mealViewHolder.secondSideCourse.setText(lunches.get(i).getSecondSideDish());
         mealViewHolder.mealIcon.setImageResource(lunches.get(i).getIconId());
 
 
@@ -51,6 +52,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.MealViewHolder>{
         CardView cv;
         TextView mainCourse;
         TextView sideCourse;
+        TextView secondSideCourse;
         ImageView mealIcon;
 
         MealViewHolder(View itemView) {
@@ -58,6 +60,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.MealViewHolder>{
             cv = (CardView)itemView.findViewById(R.id.card_view);
             mainCourse = (TextView)itemView.findViewById(R.id.tv_mainCourse);
             sideCourse = (TextView)itemView.findViewById(R.id.tv_sideCourse);
+            secondSideCourse = (TextView)itemView.findViewById(R.id.tv_sideCourse2);
             mealIcon = (ImageView)itemView.findViewById(R.id.imageviewLunch);
         }
     }

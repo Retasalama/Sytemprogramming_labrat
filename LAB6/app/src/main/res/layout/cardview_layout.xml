@@ -30,24 +30,35 @@
             <TextView
                 android:id="@+id/tv_mainCourse"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="@string/mainCourse"
                 android:textSize="@dimen/heading_text"
                 android:layout_marginLeft="@dimen/padding"
-                android:layout_marginTop="@dimen/padding"
                 card_view:layout_constraintLeft_toRightOf="@id/imageviewLunch"
-                card_view:layout_constraintTop_toTopOf="@id/constraint_layout"/>
+                card_view:layout_constraintTop_toTopOf="@id/constraint_layout"
+                card_view:layout_constraintBottom_toTopOf="@id/tv_sideCourse"/>
 
             <TextView
                 android:id="@+id/tv_sideCourse"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="@string/sideCourse"
                 android:textSize="@dimen/sub_text"
                 android:layout_marginLeft="@dimen/padding"
                 card_view:layout_constraintLeft_toRightOf="@id/imageviewLunch"
                 card_view:layout_constraintTop_toBottomOf="@id/tv_mainCourse"
-                card_view:layout_constraintBottom_toBottomOf="@id/imageviewLunch"/>
+                card_view:layout_constraintBottom_toTopOf="@id/tv_sideCourse2" />
+
+            <TextView
+                android:id="@+id/tv_sideCourse2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/sideCourse"
+                android:textSize="@dimen/sub_text"
+                android:layout_marginLeft="@dimen/padding"
+                card_view:layout_constraintLeft_toRightOf="@id/imageviewLunch"
+                card_view:layout_constraintTop_toBottomOf="@id/tv_sideCourse"
+                card_view:layout_constraintBottom_toBottomOf="@id/constraint_layout"/>
 
         </android.support.constraint.ConstraintLayout>
 
