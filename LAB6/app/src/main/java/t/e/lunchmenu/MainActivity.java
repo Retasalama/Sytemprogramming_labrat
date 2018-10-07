@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -12,7 +13,11 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,14 +25,26 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Lunches> lunchList;
+    private String date;
 
     @ViewById(R.id.my_recycler_view)
     RecyclerView recyclerView;
 
+    @ViewById(R.id.tv_restaurant_name)
+    TextView tvRestaurantname;
+
+    @ViewById(R.id.tv_date)
+    TextView tvDate;
+
     @Background
     void connect () {
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+        date = new SimpleDateFormat("yyyy-MM-dd").format(ts);
+        Log.d("DATE", "Date = " + date);
+        date="2018-10-08";
+        String url = "https://www.amica.fi/api/restaurant/menu/day?date=" + date + "&language=en&restaurantPageId=66287";
         HTTPHandler httpHandler = new HTTPHandler();
-        String result = httpHandler.makeServiceCall("https://www.amica.fi/api/restaurant/menu/day?date=2018-10-4&language=en&restaurantPageId=66287");
+        String result = httpHandler.makeServiceCall(url);
         if(result != null){
             JsonParser jsonParser = new JsonParser();
             lunchList = jsonParser.parseJSON(result);
@@ -46,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     }
     @UiThread
     void setLunchList() {
+
+        tvRestaurantname.setText(R.string.restaurant_name);
+        tvDate.setText(date);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
         RVAdapter adapter = new RVAdapter(lunchList);

@@ -38,6 +38,7 @@ public class JsonParser {
                         lunch.setIconId(R.drawable.lunch);
                         break;
                     case("LUNCH SALAD"):
+                        lunch.setHeadCourse("Salad");
                         lunch.setIconId(R.drawable.vegetable);
                         break;
                     case("SPECIAL LUNCH"):

@@ -2,4 +2,6 @@
     <string name="app_name">LunchMenu</string>
     <string name="mainCourse">Maincourse</string>
     <string name="sideCourse">Sidecourse</string>
+    <string name="lunch_salad">Salad</string>
+    <string name="restaurant_name">Restaurant Kotkanpoika</string>
 </resources>
